@@ -18,7 +18,8 @@ export function UserDetails({ user, setUsers }) {
           Edit
         </button>
         <button className="bg-slate-200 px-2">Delete</button>
-        <button className="bg-slate-200 px-2" onClick={() => {
+     {isEdit && (
+         <button className="bg-slate-200 px-2" onClick={() => {
           setUsers(
             (currentUsersState) => {
               return currentUsersState.map(
@@ -32,6 +33,7 @@ export function UserDetails({ user, setUsers }) {
           )
           setIsEdit(false)
         }}>Save</button>
+     )}
       </div>
       <div>
         <b>ID:</b>
