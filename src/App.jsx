@@ -26,11 +26,15 @@ export default function App() {
       <form>
       <div>
       <label htmlFor="username">Username</label>
-      <input name="username" id="username" value={username}/>
+      <input name="username" id="username" value={username} onChange={(e) => {
+        setUsername(e.target.value); 
+      }}/>
       </div>
       <div>
       <label htmlFor="email">Email</label>
-      <input name="email" id="email" value={email}/>
+      <input name="email" id="email" value={email} onChange={(e) => {
+        setEmail(e.target.value);
+      }}/>
       </div>
       <button>Add User</button><br/>
       </form>
