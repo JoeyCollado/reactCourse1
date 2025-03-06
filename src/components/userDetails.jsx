@@ -17,23 +17,30 @@ export function UserDetails({ user, setUsers }) {
         >
           Edit
         </button>
-        <button className="bg-slate-200 px-2">Delete</button>
-     {isEdit && (
-         <button className="bg-slate-200 px-2" onClick={() => {
-          setUsers(
-            (currentUsersState) => {
-              return currentUsersState.map(
-                (currentUsers) => {
-                  if(currentUsers.id === user.id) //ensure we are editing the correct user
-                  return ({ ...currentUsers, username: username, email: email }) //ensure that user is editing if not return current user
-                  else return currentUsers;
-                }
-              )
-            } 
-          )
-          setIsEdit(false)
-        }}>Save</button>
-     )}
+
+        <button className="bg-slate-200 px-2" onClick={() => {
+          setUsers((currentUsersState) => currentUsersState.filter(
+            (currentUser) =>  currentUser.id !== user.id         //filter functions = filter elements you don't want, creates a new filtered array which is immutable
+          ))
+        }}>Delete</button>
+
+        {isEdit && (
+  <button
+    className="bg-slate-200 px-2"
+    onClick={() => {
+      setUsers((currentUsersState) =>
+        currentUsersState.map((currentUser) =>
+          currentUser.id === user.id
+            ? { ...currentUser, username, email }
+            : currentUser
+        )
+      );
+      setIsEdit(false);
+    }}
+  >
+    Save
+  </button>
+)}
       </div>
       <div>
         <b>ID:</b>
