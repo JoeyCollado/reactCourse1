@@ -26,11 +26,11 @@ export default function App() {
       <form>
       <div>
       <label htmlFor="username">Username</label>
-      <input name="username" id="username" />
+      <input name="username" id="username" value={username}/>
       </div>
       <div>
       <label htmlFor="email">Email</label>
-      <input name="email" id="email" />
+      <input name="email" id="email" value={email}/>
       </div>
       <button>Add User</button><br/>
       </form>
