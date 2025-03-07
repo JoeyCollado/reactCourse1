@@ -27,11 +27,12 @@ export default function App() {
       <form onSubmit={e => {
         e.preventDefault()
         const newUser = {
-          id, counter,
+          id: counter,
           username,
           email,
         };
         setCounter((currentCounter) => currentCounter + 1)
+        setUsers((currentUserState) => [...currentUserState, newUser])
       }}>
       <div>
       <label htmlFor="username">Username</label>
