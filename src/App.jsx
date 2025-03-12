@@ -12,11 +12,14 @@ const App = () => {
   useEffect(() => { //fetch data (url, {options for requested data})
     async function fetchUsers(){
       try{
-       const response = await fetch()  //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
+       const response = await fetch('https://jsonplaceholder.typicode.com/users')  //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
+        const json = await response.json() //use response.json to get the actual data
+        console.log(json)
       } catch (error){
-        
+        console.log(error)
       }
     }
+    fetchUsers();
   })
 
   return (
