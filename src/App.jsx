@@ -10,7 +10,9 @@ const App = () => {
   }, [counter]); //call this callback function everytime the useState is updated by default with no dependencies array
 
   useEffect(() => { //fetch data (url, {options for requested data})
-    
+    async function fetchUsers(){
+
+    }
   })
 
   return (
