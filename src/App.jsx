@@ -15,8 +15,12 @@ const App = () => {
       // body: {
       //  // username: ''
       // }
-    }).then((response) => { //getting the response
-      console.log(response)
+    }).then((response) => { //getting the response, parsing
+      return response.json() //return a promise
+    }).then((data) => {  //handles promise
+      console.log(data)
+    }).catch((error) => { //catch error (error handling)
+      console.log(error)
     })
   })
 
