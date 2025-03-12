@@ -10,18 +10,7 @@ const App = () => {
   }, [counter]); //call this callback function everytime the useState is updated by default with no dependencies array
 
   useEffect(() => { //fetch data (url, {options for requested data})
-    fetch('https://jsonplaceholder.typicode.com/users', {
-      method: 'GET',
-      // body: {
-      //  // username: ''
-      // }
-    }).then((response) => { //getting the response, parsing
-      return response.json() //return a promise
-    }).then((data) => {  //handles promise
-      console.log(data)
-    }).catch((error) => { //catch error (error handling)
-      console.log(error)
-    })
+    
   })
 
   return (
