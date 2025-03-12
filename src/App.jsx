@@ -11,7 +11,11 @@ const App = () => {
 
   useEffect(() => { //fetch data (url, {options for requested data})
     async function fetchUsers(){
-      await fetch()  //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
+      try{
+       const response = await fetch()  //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
+      } catch (error){
+        
+      }
     }
   })
 
