@@ -10,9 +10,16 @@ const App = () => {
   }, [counter]); //call this callback function everytime the useState is updated by default with no dependencies array
 
   useEffect(() => { //fetch data (url, {options for requested data})
+
+    const controller = new AbortController();
+    controller.signal //give abort signal property, give information about aborted request
+
     async function fetchUsers(){
       try{
-       const response = await fetch('https://jsonplaceholder.typicode.com/users')  //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
+       const response = await fetch(
+        'https://jsonplaceholder.typicode.com/users',
+        { signal: controller.signal } //communicate with the request if it's to be aborted or not
+      ) //await can be used to any method call that returns a promise, what it does is basically it says "Wait for this promise to resolve or reject then proceed with the rest of the logic"
         const json = await response.json() //use response.json to get the actual data
         console.log(json)
       } catch (error){
@@ -32,3 +39,5 @@ const App = () => {
 }
 
 export default App
+
+//abort controller = allows us to control the request so you can have it to be aborted (cancel the request if it needs to be)
