@@ -27,6 +27,10 @@ const App = () => {
       }
     }
     fetchUsers();
+    //cleanup function is called first time because we are unmounting the components then the component is rendered second time and the cleanup function will not be called 2nd time
+    return () => {
+       controller.abort();
+    }
   })
 
   return (
