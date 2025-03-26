@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useDocClick } from "../hooks/useDocClick";
 
 export function LoginForm() {
 
@@ -15,6 +16,8 @@ export function LoginForm() {
       window.removeEventListener('resize', resizeEventHandler)
     }
   }, []); //empty dependency = make sure this useEffect execute only 1 time
+
+  useDocClick();
 
   return (
     <form className="text-center gap-2 flex flex-row justify-end pt-10 pr-10" onSubmit={(e) => {
