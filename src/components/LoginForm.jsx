@@ -1,4 +1,21 @@
+import { useEffect } from "react";
+
 export function LoginForm() {
+
+  useEffect(() => {
+    const resizeEventHandler = (e) => {
+      console.log("Window/Viewport Resized!");
+    };
+    window.addEventListener("resize", resizeEventHandler);
+
+    //avoid registering same event multiple times (cleanup function), called everytime component unmounts
+    return () => {
+      console.log('Unmounting loginform')
+      console.log('Removing resizeeventlistener')
+      window.removeEventListener('resize', resizeEventHandler)
+    }
+  }, []); //empty dependency = make sure this useEffect execute only 1 time
+
   return (
     <form className="text-center gap-2 flex flex-row justify-end pt-10 pr-10" onSubmit={(e) => {
       e.preventDefault(); //prevent default behavior of refreshing

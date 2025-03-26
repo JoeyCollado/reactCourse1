@@ -1,23 +1,18 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import { LoginForm } from "./components/LoginForm";
 
 const App = () => {
-  useEffect(() => {
-    const resizeEventHandler = (e) => {
-      console.log("Window/Viewport Resized!");
-    };
-    window.addEventListener("resize", resizeEventHandler);
 
-    //avoid registering same event multiple times (cleanup function), called everytime component unmounts
-    return () => {
-      window.removeEventListener('resize', resizeEventHandler)
-    }
-  }, []); //empty dependency = make sure this useEffect execute only 1 time
-
-  
-
-
-
-  return <div></div>;
+  const [toggle, setToggle] = useState(false)
+ 
+  return (
+  <div className="h-screen bg-slate-500">
+    <button onClick={() => setToggle((currentState => !currentState))}>
+      Toggle
+    </button>
+    {toggle && <LoginForm/> }
+  </div>
+)
 };
 
 export default App;
