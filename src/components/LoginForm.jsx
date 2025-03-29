@@ -4,7 +4,7 @@ import { useDocClick } from "../hooks/useDocClick";
 export function LoginForm() {
 
   useEffect(() => {
-    const resizeEventHandler = (e) => {
+    const resizeEventHandler = () => {
       console.log("Window/Viewport Resized!");
     };
     window.addEventListener("resize", resizeEventHandler);
