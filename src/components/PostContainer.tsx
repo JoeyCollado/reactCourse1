@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PostContent from './postContent'
 
-const postContainer = () => {
+const PostContainer = () => {
+
+    const [data,setData] = useState("hello world")
   return (
+
     <div>
-      <PostContent/>
+      <PostContent data={data}/>
     </div>
   )
 }
 
-export default postContainer
+export default PostContainer
