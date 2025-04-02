@@ -1,14 +1,18 @@
 import PostContainer from "./components/postContainer"
+import UserContext from "./contexts/UserContext"
 
 const App = () => {
   return (
     <div>
+      <UserContext.Provider>
+        <div>
       <PostContainer/>
+       </div>
+      </UserContext.Provider>
     </div>
   )
 }
 
 export default App
 
-//reactContext api = helps us avoid prop drilling
-//                   object that contains information that we can reference from anywhere we want as long as you're inside that context
+//
