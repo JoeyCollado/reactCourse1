@@ -10,8 +10,9 @@ const PostContainer = () => {
 
     <div>
       <PostContent data={data}/>
+      <div className='text-black'>{userContextData.displayName}</div>
     </div>
   )
 }
 
-export default PostContainer
+export default PostContainer;
